@@ -23,6 +23,6 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY --from=builder /app ./
 
-EXPOSE 3000
+EXPOSE 5800
 
 CMD ["pnpm", "start"]
