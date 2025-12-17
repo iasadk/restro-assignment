@@ -22,7 +22,7 @@ ENV PORT=3000
 
 # Install production deps
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
+RUN npm i --omit=dev
 
 # Copy built files
 COPY --from=builder /app ./
