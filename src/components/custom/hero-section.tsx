@@ -3,7 +3,7 @@ import { Page } from "@/payload-types"
 import { ArrowRight } from "lucide-react"
 
 interface Props {
-    layout: Page['layout'][number]
+    layout: Extract<Page['layout'][number], { blockType: 'cta' }>
 }
 export function HeroSection({ layout }: Props) {
     return (

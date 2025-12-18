@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button"
+import { Page } from "@/payload-types"
 import Link from "next/link"
-
-export function CtaSection() {
+interface Props {
+    layout: Extract<Page['layout'][number], { blockType: 'cta' }>
+}
+export function CtaSection({ layout }: Props) {
+    const { primaryCTA, secondaryCTA } = layout
     return (
         <section className="py-20 sm:py-32">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,17 +13,17 @@ export function CtaSection() {
                     <div className="relative z-10 px-6 py-20 sm:px-12 sm:py-28 lg:px-16">
                         <div className="mx-auto max-w-2xl text-center">
                             <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                                Ready to get started?
+                                {layout.heading}
                             </h2>
                             <p className="mb-10 text-pretty text-lg leading-relaxed text-muted-foreground">
-                                Join thousands of teams building the future of the web. Start your free trial today.
+                                {layout.subheading}
                             </p>
                             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                                 <Button size="lg" className="w-full sm:w-auto">
-                                    Start Free Trial
+                                    <Link href={`/${primaryCTA?.url}`}>{layout.primaryCTA?.label}</Link>
                                 </Button>
                                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent" asChild>
-                                    <Link href="/contact">Contact Sales</Link>
+                                    <Link href={`/${secondaryCTA?.url}`}>{layout.secondaryCTA?.label}</Link>
                                 </Button>
                             </div>
                         </div>
@@ -31,6 +35,6 @@ export function CtaSection() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }

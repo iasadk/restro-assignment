@@ -169,22 +169,38 @@ export interface Page {
   id: string;
   title: string;
   slug?: string | null;
-  layout: {
-    tag?: string | null;
-    heading: string;
-    subheading?: string | null;
-    primaryCTA?: {
-      label?: string | null;
-      url?: string | null;
-    };
-    secondaryCTA?: {
-      label?: string | null;
-      url?: string | null;
-    };
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'hero';
-  }[];
+  layout: (
+    | {
+        tag?: string | null;
+        variant?: ('variant-one' | 'variant-two') | null;
+        heading: string;
+        subheading?: string | null;
+        primaryCTA?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        secondaryCTA?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cta';
+      }
+    | {
+        heading: string;
+        description?: string | null;
+        features: {
+          icon: 'zap' | 'shield' | 'trending-up' | 'users' | 'code' | 'rocket';
+          title: string;
+          description?: string | null;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'features';
+      }
+  )[];
   updatedAt: string;
   createdAt: string;
 }
@@ -316,10 +332,11 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        hero?:
+        cta?:
           | T
           | {
               tag?: T;
+              variant?: T;
               heading?: T;
               subheading?: T;
               primaryCTA?:
@@ -333,6 +350,22 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        features?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              features?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

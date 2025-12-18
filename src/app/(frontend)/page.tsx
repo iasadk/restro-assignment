@@ -22,10 +22,15 @@ export default async function HomePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <HeroSection layout={layouts[0]} />
-        <FeaturesSection />
+        {layouts.map(layout => {
+          if (layout.blockType === 'cta') {
+            return layout.variant === 'variant-one' ? <HeroSection layout={layout} /> : <CtaSection layout={layout} />
+          } else if (layout.blockType === 'features') {
+            return <FeaturesSection layout={layout} />
+          }
+        })}
         <TestimonialsSection />
-        <CtaSection />
+
       </main>
       <Footer />
     </div>

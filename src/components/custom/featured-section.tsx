@@ -1,3 +1,5 @@
+import { iconMap } from "@/lib/utils"
+import { Page } from "@/payload-types"
 import { Zap, Shield, TrendingUp, Users, Code, Rocket } from "lucide-react"
 
 const features = [
@@ -33,22 +35,25 @@ const features = [
     },
 ]
 
-export function FeaturesSection() {
+interface Props {
+    layout: Extract<Page['layout'][number], { blockType: 'features' }>
+}
+export function FeaturesSection({ layout }: Props) {
     return (
         <section className="border-b border-border/40 py-20 sm:py-32">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="mb-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        Everything you need to build modern web apps
+                        {layout.heading}
                     </h2>
                     <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
-                        A complete toolkit designed to help you ship faster and build better.
+                        {layout.description}
                     </p>
                 </div>
 
                 <div className="mx-auto mt-16 grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {features.map((feature) => {
-                        const Icon = feature.icon
+                    {layout.features.map((feature) => {
+                        const Icon = iconMap[feature.icon]
                         return (
                             <div
                                 key={feature.title}
