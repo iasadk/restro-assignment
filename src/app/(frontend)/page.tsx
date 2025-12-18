@@ -25,11 +25,13 @@ export default async function HomePage() {
         {layouts.map(layout => {
           if (layout.blockType === 'cta') {
             return layout.variant === 'variant-one' ? <HeroSection layout={layout} /> : <CtaSection layout={layout} />
+          } else if (layout.blockType === 'testimonial') {
+            return <TestimonialsSection layout={layout} />
           } else if (layout.blockType === 'features') {
             return <FeaturesSection layout={layout} />
           }
         })}
-        <TestimonialsSection />
+
 
       </main>
       <Footer />

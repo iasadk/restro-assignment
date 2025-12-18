@@ -17,6 +17,7 @@ export function ContactForm() {
         e.preventDefault()
         setIsSubmitting(true)
 
+        const form = e.currentTarget
         const formData = new FormData(e.currentTarget)
         const data = {
             name: formData.get("name") as string,
@@ -34,19 +35,19 @@ export function ContactForm() {
                 body: JSON.stringify(data),
             })
 
+            console.log(response)
             if (!response.ok) {
                 throw new Error("Failed to submit form")
             }
-            toast("Event has been created", {
-                description: "Failed to send message. Please try again.",
+
+            toast("Message sent!", {
+                description: "We'll get back to you shortly.",
             })
 
-            // Reset form
-            e.currentTarget.reset()
+            form.reset()
         } catch (error) {
-            console.error("[v0] Form submission error:", error)
-            toast("Event has been created", {
-                description: "Failed to send message. Please try again.",
+            toast("Submission failed", {
+                description: "Please try again later.",
             })
         } finally {
             setIsSubmitting(false)

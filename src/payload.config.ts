@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import { Media } from './collections/Media'
 import { Page } from './collections/Page'
 import { Users } from './collections/Users'
+import { ContactSubmissions } from './collections/Contact'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +23,8 @@ const config = buildConfig({
   collections: [
     Users,
     Media,
-    Page
+    Page,
+    ContactSubmissions
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

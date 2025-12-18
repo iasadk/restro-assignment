@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { CTA } from '../blocks/CTA'
 import { FeaturesBlock } from '@/blocks/FeaturedSection'
+import { TestimonialBlock } from '../blocks/Testimonial'
 // import { Feature } from '../blocks/Feature'
 // import { Testimonial } from '../blocks/Testimonial'
 // import { CTA } from '../blocks/CTA'
@@ -27,7 +28,7 @@ export const Page: CollectionConfig = {
             name: 'layout',
             type: 'blocks',
             required: true,
-            blocks: [CTA, FeaturesBlock/*, Feature, Testimonial, CTA*/],
+            blocks: [CTA, FeaturesBlock, TestimonialBlock],
         },
     ],
 }

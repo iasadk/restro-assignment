@@ -1,40 +1,5 @@
 import { iconMap } from "@/lib/utils"
 import { Page } from "@/payload-types"
-import { Zap, Shield, TrendingUp, Users, Code, Rocket } from "lucide-react"
-
-const features = [
-    {
-        icon: Zap,
-        title: "Lightning Fast",
-        description: "Build and ship at the speed of thought with optimized performance.",
-    },
-    {
-        icon: Shield,
-        title: "Enterprise Security",
-        description: "Bank-level security with automated compliance and monitoring.",
-    },
-    {
-        icon: TrendingUp,
-        title: "Scale Effortlessly",
-        description: "From startup to enterprise, scale seamlessly with zero config.",
-    },
-    {
-        icon: Users,
-        title: "Team Collaboration",
-        description: "Work together in real-time with powerful collaboration tools.",
-    },
-    {
-        icon: Code,
-        title: "Developer First",
-        description: "Built by developers, for developers. Intuitive and powerful.",
-    },
-    {
-        icon: Rocket,
-        title: "Deploy Instantly",
-        description: "Push to deploy. Go live in seconds, not hours.",
-    },
-]
-
 interface Props {
     layout: Extract<Page['layout'][number], { blockType: 'features' }>
 }
