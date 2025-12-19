@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/sonner"
 import "./global.css"
+import { Header } from "@/components/custom/header"
+import { Footer } from "@/components/custom/footer"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -38,7 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
+        <Header />
+
         {children}
+        <Footer />
+
         <Toaster />
         <Analytics />
       </body>

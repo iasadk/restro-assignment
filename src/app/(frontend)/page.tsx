@@ -1,9 +1,8 @@
-import { Header } from "@/components/custom/header"
-import { HeroSection } from "@/components/custom/hero-section"
-import { FeaturesSection } from "@/components/custom/featured-section"
-import { TestimonialsSection } from "@/components/custom/testimonials-section"
+import { HighlightedBlogsBlock } from "@/components/custom/blog/BlogSection"
 import { CtaSection } from "@/components/custom/cta-section"
-import { Footer } from "@/components/custom/footer"
+import { FeaturesSection } from "@/components/custom/featured-section"
+import { HeroSection } from "@/components/custom/hero-section"
+import { TestimonialsSection } from "@/components/custom/testimonials-section"
 import { payload } from "@/lib/payload"
 
 export default async function HomePage() {
@@ -20,21 +19,22 @@ export default async function HomePage() {
   console.log(page)
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
       <main className="flex-1">
-        {layouts.map(layout => {
+        {layouts.map((layout, i) => {
+          // if (layout.blockType === 'highlighted-blogs') {
+          //   console.log(layout, "FEATRE")
+          // }
           if (layout.blockType === 'cta') {
-            return layout.variant === 'variant-one' ? <HeroSection layout={layout} /> : <CtaSection layout={layout} />
+            return layout.variant === 'variant-one' ? <HeroSection layout={layout} key={layout.blockType + i} /> : <CtaSection layout={layout} key={layout.blockType + i} />
           } else if (layout.blockType === 'testimonial') {
-            return <TestimonialsSection layout={layout} />
+            return <TestimonialsSection layout={layout} key={layout.blockType + i} />
           } else if (layout.blockType === 'features') {
-            return <FeaturesSection layout={layout} />
+            return <FeaturesSection layout={layout} key={layout.blockType + i} />
+          } else if (layout.blockType === 'highlighted-blogs') {
+            return <HighlightedBlogsBlock layout={layout} key={layout.blockType + i} />
           }
         })}
-
-
       </main>
-      <Footer />
     </div>
   )
 }

@@ -2,9 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { CTA } from '../blocks/CTA'
 import { FeaturesBlock } from '@/blocks/FeaturedSection'
 import { TestimonialBlock } from '../blocks/Testimonial'
-// import { Feature } from '../blocks/Feature'
-// import { Testimonial } from '../blocks/Testimonial'
-// import { CTA } from '../blocks/CTA'
+import { HighlightedBlogs } from '@/blocks/HighlightedBlog'
 
 export const Page: CollectionConfig = {
     slug: 'pages',
@@ -28,7 +26,7 @@ export const Page: CollectionConfig = {
             name: 'layout',
             type: 'blocks',
             required: true,
-            blocks: [CTA, FeaturesBlock, TestimonialBlock],
+            blocks: [CTA, FeaturesBlock, TestimonialBlock, HighlightedBlogs],
         },
     ],
 }

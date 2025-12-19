@@ -9,6 +9,7 @@ import {
   Code,
   Rocket,
 } from 'lucide-react'
+import { Media } from "@/payload-types"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -22,3 +23,12 @@ export const iconMap = {
   code: Code,
   rocket: Rocket,
 }
+
+
+export const getImageUrl = ((img: string | Media) => {
+  const cleanLink = typeof img === 'object'
+    ? img?.url
+    : img;
+
+  return cleanLink;
+})

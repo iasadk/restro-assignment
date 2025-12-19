@@ -9,11 +9,17 @@ import { Media } from './collections/Media'
 import { Page } from './collections/Page'
 import { Users } from './collections/Users'
 import { ContactSubmissions } from './collections/Contact'
+import { Blogs } from './collections/Blog'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 const config = buildConfig({
+  localization: {
+    locales: ['en', 'fr', 'es'],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   admin: {
     user: Users.slug,
     importMap: {
@@ -24,7 +30,8 @@ const config = buildConfig({
     Users,
     Media,
     Page,
-    ContactSubmissions
+    ContactSubmissions,
+    Blogs
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
