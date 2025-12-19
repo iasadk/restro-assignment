@@ -24,6 +24,7 @@ export const Blogs: CollectionConfig = {
             type: 'text',
             required: true,
             unique: true,
+
         },
         {
             name: 'tag',
@@ -47,6 +48,7 @@ export const Blogs: CollectionConfig = {
             name: 'excerpt',
             type: 'textarea',
             required: true,
+            localized: true,
         },
         {
             name: 'featuredImage',
@@ -58,6 +60,7 @@ export const Blogs: CollectionConfig = {
             name: 'content',
             type: 'richText',
             required: true,
+            localized: true,
         },
         {
             name: 'publishedAt',

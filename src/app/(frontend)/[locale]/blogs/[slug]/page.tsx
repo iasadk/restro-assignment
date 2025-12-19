@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 
 export default async function BlogPage({ params }: any) {
     const prms = await params;
-    const blog = await fetchBlogBySlug(prms.slug)
+    const blog = await fetchBlogBySlug(prms.slug, prms.locale)
     // console.log(blog)
     if (!blog) notFound()
 

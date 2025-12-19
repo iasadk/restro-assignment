@@ -1,5 +1,8 @@
 import { withPayload } from '@payloadcms/next/withPayload'
-
+// const createNextIntlPlugin = require('next-intl/plugin');
+import createNextIntlPlugin from 'next-intl/plugin'
+ 
+const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Your Next.js config here
@@ -14,4 +17,6 @@ const nextConfig = {
   },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+export default withNextIntl(
+  withPayload(nextConfig, { devBundleServerPackages: false })
+);

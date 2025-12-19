@@ -8,6 +8,7 @@ export const CTA: Block = {
       name: 'tag',
       type: 'text',
       required: false,
+      localized: true
     },
     {
       name: 'variant',
@@ -22,25 +23,28 @@ export const CTA: Block = {
       name: 'heading',
       type: 'text',
       required: true,
+      localized: true
+
     },
     {
       name: 'subheading',
       type: 'textarea',
+      localized: true
     },
     {
       name: 'primaryCTA',
       type: 'group',
       fields: [
-        { name: 'label', type: 'text' },
-        { name: 'url', type: 'text' },
+        { name: 'label', type: 'text', localized: true },
+        { name: 'url', type: 'text', localized: true },
       ],
     },
     {
       name: 'secondaryCTA',
       type: 'group',
       fields: [
-        { name: 'label', type: 'text' },
-        { name: 'url', type: 'text' },
+        { name: 'label', type: 'text', localized: true },
+        { name: 'url', type: 'text', localized: true },
       ],
     },
   ],

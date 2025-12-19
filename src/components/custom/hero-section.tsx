@@ -6,6 +6,8 @@ interface Props {
     layout: Extract<Page['layout'][number], { blockType: 'cta' }>
 }
 export function HeroSection({ layout }: Props) {
+    const { primaryCTA, secondaryCTA } = layout
+
     return (
         <section className="relative overflow-hidden border-b border-border/40 py-20 sm:py-32 lg:py-40">
             <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,11 +26,11 @@ export function HeroSection({ layout }: Props) {
 
                     <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Button size="lg" className="group w-full sm:w-auto">
-                            Get Started
+                            {primaryCTA?.label}
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                         <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
-                            Watch Demo
+                            {secondaryCTA?.label}
                         </Button>
                     </div>
                 </div>
