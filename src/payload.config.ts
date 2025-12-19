@@ -12,9 +12,9 @@ import { Page } from './collections/Page'
 import { Users } from './collections/Users'
 import { ContactSubmissions } from './collections/Contact'
 import { Blogs } from './collections/Blog'
-import englishTranslation from 'messages/en.json'
-import frenchTranslation from 'messages/en.json'
-import espaniolTranslation from 'messages/en.json'
+import englishTranslation from '../messages/en.json'
+import frenchTranslation from '../messages/en.json'
+import espaniolTranslation from '../messages/en.json'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
