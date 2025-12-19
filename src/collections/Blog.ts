@@ -1,3 +1,4 @@
+import { SEOFields } from '@/blocks/Seo'
 import type { CollectionConfig } from 'payload'
 
 export const Blogs: CollectionConfig = {
@@ -13,6 +14,11 @@ export const Blogs: CollectionConfig = {
     },
 
     fields: [
+        {
+            name: 'seo',
+            type: 'group',
+            fields: SEOFields,
+        },
         {
             name: 'title',
             type: 'text',

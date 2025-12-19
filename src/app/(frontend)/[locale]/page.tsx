@@ -3,8 +3,27 @@ import { CtaSection } from "@/components/custom/cta-section"
 import { FeaturesSection } from "@/components/custom/featured-section"
 import { HeroSection } from "@/components/custom/hero-section"
 import { TestimonialsSection } from "@/components/custom/testimonials-section"
-import { fetchPage } from "@/lib/server-actions"
+import { buildMetadata } from "@/lib/seo"
+import { fetchPage, LocaleTypes } from "@/lib/server-actions"
+import { getImageUrl } from "@/lib/utils"
+import { Metadata } from "next"
 
+
+export async function generateMetadata({ params }: { params: { slug: string; locale: LocaleTypes } }): Promise<Metadata> {
+  const prms = await params;
+  const blog = await fetchPage('first-page', prms.locale)
+
+  const doc = blog.docs[0]
+
+
+  return buildMetadata({
+    title: doc.seo?.metaTitle || doc.title,
+    description: doc.seo?.metaDescription ?? '',
+    image: getImageUrl(doc.seo?.metaImage ?? '') || '',
+    url: `${prms.locale}`,
+    noIndex: doc.seo?.noIndex ?? false,
+  })
+}
 export default async function HomePage({ params }: any) {
   const prms = await params;
   const page = await fetchPage('first-page', prms.locale)

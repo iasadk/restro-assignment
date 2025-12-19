@@ -1,7 +1,7 @@
 import { Page } from "@/payload-types";
 import { payload } from "./payload"
 
-type LocaleTypes = "all" | "en" | "fr" | "es" | undefined
+export type LocaleTypes = "all" | "en" | "fr" | "es" | undefined
 export const fetchBlogBySlug = async (
     slug: string,
     locale: LocaleTypes

@@ -171,6 +171,28 @@ export interface Media {
  */
 export interface Page {
   id: string;
+  seo?: {
+    /**
+     * SEO title (max 60 chars)
+     */
+    metaTitle?: string | null;
+    /**
+     * SEO description (max 160 chars)
+     */
+    metaDescription?: string | null;
+    /**
+     * OG / Social image
+     */
+    metaImage?: (string | null) | Media;
+    /**
+     * Prevent indexing
+     */
+    noIndex?: boolean | null;
+    /**
+     * Optional canonical URL
+     */
+    canonicalUrl?: string | null;
+  };
   title: string;
   slug?: string | null;
   layout: (
@@ -242,6 +264,28 @@ export interface Page {
  */
 export interface Blog {
   id: string;
+  seo?: {
+    /**
+     * SEO title (max 60 chars)
+     */
+    metaTitle?: string | null;
+    /**
+     * SEO description (max 160 chars)
+     */
+    metaDescription?: string | null;
+    /**
+     * OG / Social image
+     */
+    metaImage?: (string | null) | Media;
+    /**
+     * Prevent indexing
+     */
+    noIndex?: boolean | null;
+    /**
+     * Optional canonical URL
+     */
+    canonicalUrl?: string | null;
+  };
   title: string;
   slug: string;
   tag?: ('new' | 'most-loved' | 'featured') | null;
@@ -411,6 +455,15 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        metaImage?: T;
+        noIndex?: T;
+        canonicalUrl?: T;
+      };
   title?: T;
   slug?: T;
   layout?:
@@ -507,6 +560,15 @@ export interface ContactSubmissionsSelect<T extends boolean = true> {
  * via the `definition` "blogs_select".
  */
 export interface BlogsSelect<T extends boolean = true> {
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        metaImage?: T;
+        noIndex?: T;
+        canonicalUrl?: T;
+      };
   title?: T;
   slug?: T;
   tag?: T;
