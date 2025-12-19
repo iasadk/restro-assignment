@@ -1,9 +1,9 @@
-import { BlogDetail } from '@/components/custom/blog/BlogDetail'
-import { fetchBlogBySlug, LocaleTypes } from '@/lib/server-actions'
+import { BlogDetail } from '../../../../../components/custom/blog/BlogDetail'
+import { fetchBlogBySlug, LocaleTypes } from '../../../../../lib/server-actions'
 import { notFound } from 'next/navigation'
 
-import { buildMetadata } from '@/lib/seo'
-import { payload } from '@/lib/payload'
+import { buildMetadata } from '../../../../../lib/seo'
+import { payload } from '../../../../../lib/payload'
 import { Metadata } from 'next'
 
 type Props = {

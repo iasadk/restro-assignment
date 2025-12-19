@@ -1,8 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import './global.css';
-import { Header } from '@/components/custom/header';
-import { Footer } from '@/components/custom/footer';
+import { Header } from '../../../components/custom/header';
+import { Footer } from '../../../components/custom/footer';
 export default async function LocaleLayout({
   children,
   params,
