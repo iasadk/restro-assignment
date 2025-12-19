@@ -13,6 +13,9 @@ services:
     startCommand: npm run start
 
     envVars:
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
+
       - key: NODE_ENV
         value: production
 
