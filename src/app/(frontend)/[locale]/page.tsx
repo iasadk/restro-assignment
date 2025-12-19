@@ -9,7 +9,14 @@ import { getImageUrl } from "@/lib/utils"
 import { Metadata } from "next"
 
 
-export async function generateMetadata({ params }: { params: { slug: string; locale: LocaleTypes } }): Promise<Metadata> {
+
+type Props = {
+  params: Promise<{
+    slug: string
+    locale: LocaleTypes
+  }>
+}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const prms = await params;
   const blog = await fetchPage('first-page', prms.locale)
 
