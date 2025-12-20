@@ -7,6 +7,10 @@ It demonstrates how to create a CMS-driven application with dynamic pages, blogs
 Only CTA blocks, Header section and blogs are localized as whole website localization was not requested
 ---
 
+### Deployed URL: 
+- **main website**: https://restro-assignment-eta.vercel.app/en
+- **admin panel**: https://restro-assignment-eta.vercel.app/admin
+- **admin cred**: iasad@gmail.com, password: 123456
 ## 🛠 Tech Stack
 
 - **Framework:** Next.js 15
@@ -99,3 +103,4 @@ npm run dev
 - SEO fields managed via **Payload CMS**
 - Localized meta title and meta description support
 - Structured for easy Open Graph integration
+
