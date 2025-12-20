@@ -4,12 +4,12 @@
 
 This project is built using **Next.js 15** and **Payload CMS**.  
 It demonstrates how to create a CMS-driven application with dynamic pages, blogs, and form submissions managed through an admin panel. With Localization using payload CMS and i18n for static content.
-
+Only CTA blocks, Header section and blogs are localized as whole website localization was not requested
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework:** Next.js 15 (App Router)
+- **Framework:** Next.js 15
 - **CMS:** Payload CMS
 - **Database:** MongoDB Atlas
 - **Styling:** Tailwind CSS / shadcn-ui
