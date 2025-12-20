@@ -2,8 +2,6 @@ import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { format } from 'date-fns'
-
-// If you use Payload Lexical renderer
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { Blog } from '@/payload-types'
 import { getImageUrl } from '@/lib/utils'
