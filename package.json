@@ -20,8 +20,8 @@
   "dependencies": {
     "@payloadcms/db-mongodb": "3.68.5",
     "@payloadcms/next": "3.68.5",
-    "@payloadcms/richtext-lexical": "^3.68.5",
-    "@payloadcms/translations": "^3.68.5",
+    "@payloadcms/richtext-lexical": "3.68.5",
+    "@payloadcms/translations": "3.68.5",
     "@payloadcms/ui": "3.68.5",
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-label": "^2.1.8",
@@ -79,3 +79,4 @@
     ]
   }
 }
+

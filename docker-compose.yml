@@ -1,10 +1,9 @@
-version: '3.8'
-
 services:
   app:
+    container_name: app-restro-assignment
     build: .
     ports:
-      - "5800:3000"
+      - "5800:8500"
     env_file:
       - .env.production
     volumes:

@@ -2,31 +2,23 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Copy package files
 COPY package.json package-lock.json ./
 
-# Install dependencies
-RUN npm i
+RUN rm -f package-lock.json && npm install
 
-# Copy rest of project
 COPY . .
 
-# Build Next.js + Payload
 RUN npm run build
 
 # ---------- RUN ----------
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT=3000
 
-# Install production deps
-COPY package.json package-lock.json ./
-RUN npm i --omit=dev
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
-# Copy built files
-COPY --from=builder /app ./
+EXPOSE 8500
 
-EXPOSE 3000
+CMD ["node", "server.js"]
 
-CMD ["npm", "run", "start"]
